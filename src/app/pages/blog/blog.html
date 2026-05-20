@@ -1,1 +1,52 @@
-<p>blog works!</p>
+<div class="archivio-container">
+  
+  <header class="archivio-header">
+    <h1>Archivio Lavori</h1>
+    <p>Una raccolta visiva dei capi sviluppati, dei prototipi di atelier e dello studio dei volumi.</p>
+  </header>
+
+  <div class="archivio-grid">
+    <!-- Ciclo Angular per mostrare i capi con la funzione di click abilitata -->
+    @for (capo of capi(); track capo.titolo) {
+      <div class="capo-card" (click)="apriDettaglio(capo)">
+        <div class="capo-image-placeholder">
+          <!-- Qui andranno le foto reali dentro src/assets/images/ -->
+          <span class="zoom-text">Vedi Dettagli</span>
+        </div>
+        <div class="capo-content">
+          <div class="capo-meta">
+            <span class="tag-categoria">{{ capo.categoria }}</span>
+            <span class="tag-anno">{{ capo.anno }}</span>
+          </div>
+          <h2>{{ capo.titolo }}</h2>
+          <p class="capo-desc">{{ capo.descrizione }}</p>
+          <div class="capo-tech-details">
+            <strong>Tessuto:</strong> {{ capo.tessuto }}
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+
+  <!-- Finestra Pop-up (Modale) che si attiva quando selezioni un capo -->
+  @if (progettoSelezionato(); as progetto) {
+    <div class="modal-overlay" (click)="chiudiDettaglio()">
+      <div class="modal-body" (click)="$event.stopPropagation()">
+        <button class="modal-close" (click)="chiudiDettaglio()">✕</button>
+        <div class="modal-grid">
+          <div class="modal-image-placeholder">[Foto Ingrandita]</div>
+          <div class="modal-text">
+            <span class="modal-tag">{{ progetto.categoria }} • {{ progetto.anno }}</span>
+            <h2>{{ progetto.titolo }}</h2>
+            <p class="modal-desc">{{ progetto.descrizione }}</p>
+            <div class="modal-tech">
+              <p><strong>Specifiche Materiale:</strong> {{ progetto.tessuto }}</p>
+              <p><strong>Controlli effettuati:</strong> Controllo drittofilo, appiombo, verifica sviluppo taglie industriale.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+
+</div>

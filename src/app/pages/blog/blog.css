@@ -1,0 +1,270 @@
+/* ==========================================================================
+   CONSERVAZIONE E LAYOUT GENERALE
+   ========================================================================== */
+.archivio-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+
+/* Intestazione */
+.archivio-header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.archivio-header h1 {
+  font-size: 2.5em;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin: 0 0 15px 0;
+}
+
+.archivio-header p {
+  font-size: 1.1em;
+  color: #6b5a4f;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Griglia dei Capi Modificata: layout a colonne moderno */
+.archivio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+}
+
+.capo-card {
+  background-color: #ffffff; /* Stacco bianco pulito */
+  border: 1px solid #f2e3da;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(38, 28, 20, 0.02);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.capo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(38, 28, 20, 0.06);
+}
+
+/* Contenitore per le foto dei capi realizzati */
+.capo-image-placeholder {
+  height: 400px; /* Foto verticali slanciate, stile sfilata */
+  background-color: #ffdcc7; /* Pesca coordinato */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.zoom-text {
+  color: #261c14;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px 20px;
+  border-radius: 30px;
+}
+
+.capo-image-placeholder:hover .zoom-text {
+  opacity: 1;
+}
+
+/* Testi della scheda prodotto */
+.capo-content {
+  padding: 30px;
+}
+
+.capo-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.tag-categoria {
+  color: #a45a3d; /* Terracotta */
+}
+
+.tag-anno {
+  color: #6b5a4f; /* Nocciola */
+}
+
+.capo-content h2 {
+  font-size: 1.4em;
+  font-weight: 500;
+  margin: 0 0 12px 0;
+  color: #261c14;
+}
+
+.capo-desc {
+  font-size: 0.95em;
+  line-height: 1.6;
+  color: #6b5a4f;
+  margin-bottom: 20px;
+}
+
+/* Dettaglio del tessuto tecnico in fondo */
+.capo-tech-details {
+  font-size: 0.85em;
+  border-top: 1px solid #f2e3da;
+  padding-top: 15px;
+  color: #261c14;
+}
+
+/* ==========================================================================
+   AGGIUNTE PER LA FINESTRA MODALE (POP-UP)
+   ========================================================================== */
+
+/* Sfondo oscurato totale */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(38, 28, 20, 0.4); /* Terracotta scuro trasparente */
+  backdrop-filter: blur(8px); /* Sfocatura di sfondo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+/* Corpo del pop-up */
+.modal-body {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 950px;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(38, 28, 20, 0.15);
+  animation: modalFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Animazione fluida di apertura */
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: scale(0.95) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Pulsante di chiusura (X) */
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #ffffff;
+  border: 1px solid #f2e3da;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.1em;
+  color: #261c14;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  background-color: #ffdcc7;
+  transform: rotate(90deg);
+}
+
+/* Layout griglia interno modale */
+.modal-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+/* Visualizzazione a due colonne per desktop */
+@media (min-width: 768px) {
+  .modal-grid {
+    grid-template-columns: 1fr 1.1fr;
+  }
+}
+
+/* Spazio foto ingrandita */
+.modal-image-placeholder {
+  background-color: #ffdcc7;
+  min-height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  color: #a45a3d;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
+/* Sezione dei testi a destra */
+.modal-text {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Tag categoria e anno sopra il titolo */
+.modal-tag {
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #a45a3d;
+  font-weight: 600;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.modal-text h2 {
+  font-size: 2em;
+  font-weight: 500;
+  color: #261c14;
+  margin: 0 0 20px 0;
+}
+
+.modal-desc {
+  font-size: 1em;
+  line-height: 1.7;
+  color: #6b5a4f;
+  margin-bottom: 30px;
+}
+
+/* Box tecnico dettagli materiale */
+.modal-tech {
+  background-color: #fffaf7; /* Fondo leggero caldo */
+  border: 1px solid #f2e3da;
+  padding: 25px;
+  border-radius: 16px;
+  font-size: 0.9em;
+}
+
+.modal-tech p {
+  margin: 0 0 12px 0;
+  color: #6b5a4f;
+  line-height: 1.5;
+}
+
+.modal-tech p:last-child {
+  margin-bottom: 0;
+}
+
+.modal-tech strong {
+  color: #261c14;
+}
