@@ -95,3 +95,9 @@ body {
   margin-top: 30px;
   margin-bottom: 0;
 }
+.logo-link {
+  color: inherit; /* Mantiene lo stesso colore (bianco) impostato per la navbar */
+  text-decoration: none; /* Rimuove la sottolineatura classica dei link */
+  cursor: pointer; /* Mostra la manina al passaggio del mouse */
+}
+
