@@ -1,0 +1,97 @@
+/* --- STILE GENERALE E RESET --- */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fff4ed; /* Lo sfondo pesca coordinato della pagina */
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #261c14;
+}
+
+/* --- CONTENITORE PRINCIPALE PAGINE --- */
+.content-wrapper {
+  min-height: 70vh;
+}
+
+/* --- BARRA DI NAVIGAZIONE SUPERIORE --- */
+.main-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #d18260 !important; /* Terracotta scuro a contrasto */
+  border-bottom: 1px solid #b86e4d !important;
+}
+
+.brand-logo {
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff4ed; /* Colore albicocca chiaro sul logo */
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  color: #fff4ed !important;
+  text-decoration: none;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #ffffff !important; /* Diventa bianco al passaggio del mouse */
+}
+
+/* --- FOOTER GENERALE --- */
+.global-footer {
+  background-color: #a45a3d !important; /* Terracotta intenso a contrasto */
+  border-top: 1px solid #8e4b30 !important;
+  padding: 60px 20px !important;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+.footer-title {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  margin-top: 0;
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+.footer-subtitle {
+  color: #fce6d8 !important; /* Pesca chiaro e morbido */
+  margin-bottom: 20px;
+}
+
+.footer-socials {
+  margin-bottom: 20px;
+}
+
+.footer-socials a {
+  color: #ffffff !important;
+  text-decoration: none;
+  font-weight: 500;
+  margin: 0 15px;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.footer-socials a:hover {
+  color: #fff4ed !important;
+  border-bottom: 1px solid #fff4ed; /* Sottolineatura elegante */
+}
+
+.footer-copyright {
+  color: #ebd0be !important; /* Testo copyright più discreto */
+  font-size: 0.8em;
+  margin-top: 30px;
+  margin-bottom: 0;
+}

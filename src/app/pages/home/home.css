@@ -1,0 +1,150 @@
+/* --- PALETTE SCANDINAVA: ALBICOCCA PALLIDO & CASTAGNA SCURO --- */
+:host {
+  --bg-peach: #fff4ed;       /* Albicocca pallido puro, caldo, accogliente e luminoso */
+  --bg-card: #ffffff;        /* Bianco pulito usato solo per far risaltare i dettagli delle carte */
+  --text-main: #261c14;      /* Castagna scurissimo (quasi nero) per testi leggibili e morbidi */
+  --text-muted: #6b5a4f;     /* Tonalità nocciola desaturata per le descrizioni secondarie */
+  --border-fine: 1px solid #f2e3da; /* Linee di giunzione sottili color pesca pastello */
+  
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--bg-peach);
+  color: var(--text-main);
+  display: block;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+/* --- SEZIONE HERO (AVVOLGENTE ED ELEGANTE) --- */
+.hero-section {
+  padding: 140px 40px;
+  text-align: center;
+  background-color: var(--bg-peach); /* Manteniamo il colore pieno continuo */
+  border-bottom: var(--border-fine);
+}
+
+.hero-section h1 {
+  font-size: 3.2em;
+  line-height: 1.2;
+  color: var(--text-main);
+  max-width: 850px;
+  margin: 0 auto;
+  letter-spacing: 1px;
+}
+
+.hero-text {
+  color: var(--text-muted);
+  max-width: 540px;
+  margin: 35px auto 0 auto;
+  line-height: 1.8;
+  font-size: 1.05em;
+}
+
+/* --- SEZIONE COMPETENZE (SCHEDE SOTTILI E SOSPESE) --- */
+.skills-section {
+  padding: 100px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.skills-section h2 {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 0.9em;
+  color: var(--text-main);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 35px;
+}
+
+.skills-grid .card {
+  padding: 40px 30px;
+  background-color: var(--bg-card); /* Il bianco qui serve solo a dare luce al testo */
+  border: var(--border-fine);
+  border-radius: 12px; /* Angoli arrotondati e morbidi */
+  box-shadow: 0 4px 20px rgba(38, 28, 20, 0.02); /* Ombra calda quasi impercettibile */
+}
+
+.skills-grid .card h3 {
+  font-size: 0.95em;
+  margin-bottom: 15px;
+  color: var(--text-main);
+}
+
+.skills-grid .card p {
+  color: var(--text-muted);
+  font-size: 0.95em;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* --- SEZIONE PROGETTI (VETRINA LOOKBOOK PULITA) --- */
+.projects-section {
+  padding: 100px 40px;
+  border-top: var(--border-fine);
+}
+
+.projects-section h2 {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 0.9em;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 50px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.project-card {
+  background-color: var(--bg-card);
+  border: var(--border-fine);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(38, 28, 20, 0.05);
+}
+
+/* Lo sfondo temporaneo per le foto ora è un pesca più intenso, molto chic */
+.image-placeholder {
+  height: 340px;
+  background-color: #ffdcc7; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-main);
+  font-size: 0.85em;
+  font-weight: bold;
+  border-bottom: var(--border-fine);
+}
+
+.project-info {
+  padding: 30px;
+}
+
+.project-info h4 {
+  font-size: 1.3em;
+  margin-bottom: 12px;
+  color: var(--text-main);
+  text-transform: none; /* Rende il titolo del progetto più delicato */
+}
+
+.project-info p {
+  color: var(--text-muted);
+  font-size: 0.95em;
+  line-height: 1.6;
+  margin: 0;
+}
