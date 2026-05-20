@@ -1,0 +1,231 @@
+/* ==========================================================================
+   CONFIGURAZIONE ANGULAR & LAYOUT GENERALE
+   ========================================================================== */
+
+/* Sblocca il tag di Angular <app-contact-page> per farlo comportare come un blocco */
+:host {
+  display: block !important;
+  width: 100% !important;
+}
+
+/* Contenitore di base a larghezza totale */
+.contatti-page-layout {
+  width: 100%;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
+
+/* Il guscio interno che stringe il form al centro e impedisce l'effetto allungato */
+.contatti-wrapper {
+  max-width: 1000px !important;
+  margin: 0 auto !important;
+  padding: 80px 24px 120px 24px !important;
+  box-sizing: border-box;
+}
+
+/* Intestazione della pagina (Titolo e Sottotitolo) */
+.contatti-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.contatti-header h1 {
+  font-size: 2.2em;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin: 0 0 15px 0;
+  color: #261c14;
+}
+
+.contatti-header p {
+  font-size: 1.05em;
+  color: #6b5a4f;
+  max-width: 550px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   STRUTTURA DELLA GRIGLIA RESPONSIVE
+   ========================================================================== */
+
+/* Su dispositivi mobili: gli elementi si dispongono uno sotto l'altro */
+.contatti-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 50px;
+  align-items: start;
+}
+
+/* Su desktop (schermi da 768px in su): forza le due colonne affiancate */
+@media (min-width: 768px) {
+  .contatti-grid {
+    grid-template-columns: 1fr 1.1fr !important;
+    gap: 60px;
+  }
+}
+
+/* ==========================================================================
+   COLONNA SINISTRA - INFORMAZIONI E RECAPITI
+   ========================================================================== */
+.contatti-info h2 {
+  font-size: 1.8em;
+  font-weight: 500;
+  color: #261c14;
+  margin: 0 0 20px 0;
+}
+
+.info-intro {
+  font-size: 1.05em;
+  line-height: 1.7;
+  color: #6b5a4f;
+  margin-bottom: 40px;
+}
+
+.info-dettagli {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.info-item strong {
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #a45a3d; /* Terracotta */
+}
+
+.info-item a, 
+.info-item span {
+  font-size: 1.1em;
+  color: #261c14;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.info-item a:hover {
+  color: #a45a3d;
+}
+
+/* ==========================================================================
+   COLONNA DESTRA - BOX DEL MODULO DI CONTATTO
+   ========================================================================== */
+.contatti-form-box {
+  background-color: #ffffff;
+  border: 1px solid #f2e3da;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 4px 20px rgba(38, 28, 20, 0.02);
+  box-sizing: border-box;
+}
+
+.contatti-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: #6b5a4f;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 14px 18px;
+  border: 1px solid #f2e3da;
+  border-radius: 12px;
+  font-size: 0.95em;
+  color: #261c14;
+  background-color: #fffaf7; /* Sfondo leggermente cipria/pesca */
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* Effetto focus quando l'utente seleziona un campo */
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #a45a3d;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(164, 90, 61, 0.1);
+}
+
+/* Bottone di invio */
+.btn-invia {
+  background-color: #a45a3d; /* Terracotta */
+  color: #ffffff;
+  border: none;
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 1em;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  margin-top: 10px;
+  width: 100%;
+}
+
+/* Hover quando il bottone è attivo */
+.btn-invia:hover:not(:disabled) {
+  background-color: #261c14; /* Scurisce */
+}
+
+/* Stile quando il bottone è bloccato dalla validazione Angular */
+.btn-invia:disabled {
+  background-color: #f2e3da;
+  color: #a69285;
+  cursor: not-allowed;
+}
+
+.btn-invia:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+/* ==========================================================================
+   STILI PER I MESSAGGI DI ERRORE COLORATI
+   ========================================================================== */
+.error-message {
+  color: #c02f2f; /* Rosso*/
+  font-size: 0.8em;
+  margin-top: 4px;
+  font-weight: 500;
+  animation: errorFadeIn 0.2s ease-in-out;
+}
+
+/* Evidenzia il bordo dei campi se non validi dopo essere stati toccati */
+.form-group input.ng-invalid.ng-touched,
+.form-group textarea.ng-invalid.ng-touched {
+  border-color: #c02f2f;
+  background-color: #fffaf9; /* Sfondo leggermente rosato */
+}
+
+@keyframes errorFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

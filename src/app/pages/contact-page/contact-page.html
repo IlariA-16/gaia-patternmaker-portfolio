@@ -1,1 +1,68 @@
-<p>contact-page works!</p>
+<div class="contatti-page-layout">
+  <div class="contatti-wrapper">
+    
+    <!-- Intestazione della pagina -->
+    <header class="contatti-header">
+      <h1>Contatti</h1>
+      <p>Hai un progetto in mente o desideri una consulenza? Scrivimi per iniziare a collaborare.</p>
+    </header>
+
+    <!-- Griglia a due colonne -->
+    <div class="contatti-grid">
+      
+      <!-- COLONNA SINISTRA: Informazioni di contatto -->
+      <div class="contatti-info">
+        <h2>Mettiamoci in contatto</h2>
+        <p class="info-intro">Disponibile per consulenze, sviluppo collezioni freelance e sdifettamento CAD.</p>
+        
+        <div class="info-dettagli">
+          <div class="info-item">
+            <strong>Email</strong>
+            <a href="mailto:info@gaiapennisi.com">info@gaiapennisi.com</a>
+          </div>
+          <div class="info-item">
+            <strong>Zona operativa</strong>
+            <span>Empoli / Remoto</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- COLONNA DESTRA: Il tuo modulo (Form) inscatolato correttamente -->
+      <div class="contatti-form-box">
+        <form [formGroup]="contattiForm" (ngSubmit)="onInvia()" class="contatti-form">
+          
+          <div class="form-group">
+            <label for="name">Nome completo</label>
+            <input type="text" id="name" formControlName="name" placeholder="Il tuo nome">
+            <!-- Messaggio di errore Nome -->
+            @if (contattiForm.get('name')?.invalid && contattiForm.get('name')?.touched) {
+              <span class="error-message">Il nome è richiesto (nome e cognome).</span>
+            }
+          </div>
+
+          <div class="form-group">
+            <label for="email">Indirizzo Email</label>
+            <input type="email" id="email" formControlName="email" placeholder="nome@esempio.com">
+            <!-- Messaggio di errore Email -->
+            @if (contattiForm.get('email')?.invalid && contattiForm.get('email')?.touched) {
+              <span class="error-message">Inserisci un indirizzo email valido.</span>
+            }
+          </div>
+
+          <div class="form-group">
+            <label for="message">Il tuo messaggio</label>
+            <textarea id="message" formControlName="message" rows="5" placeholder="Descrivi brevemente il tuo progetto..."></textarea>
+            <!-- Messaggio di errore Messaggio -->
+            @if (contattiForm.get('message')?.invalid && contattiForm.get('message')?.touched) {
+              <span class="error-message">Il messaggio deve contenere almeno 10 caratteri.</span>
+            }
+          </div>
+
+          <button type="submit" class="btn-invia" [disabled]="contattiForm.invalid">Invia Messaggio</button>
+        </form>
+      </div>
+
+    </div><!-- fine contatti-grid -->
+
+  </div>
+</div>
