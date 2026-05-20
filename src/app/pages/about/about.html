@@ -1,1 +1,41 @@
-<p>about works!</p>
+<div class="about-container">
+  
+  <!-- Sezione Introduzione / Biografia -->
+  <section class="bio-section">
+    <div class="bio-image-placeholder">[Foto Ritratto di Gaia o Dettaglio Sartoriale]</div>
+    <div class="bio-content">
+      <h1>Chi Sono</h1>
+      <p class="highlight">
+        Sono Gaia Pennisi, una modellista e patternmaker mossa dalla passione per le forme geometriche pulite e la perfetta vestibilità dei capi.
+      </p>
+      <p>
+        Il mio percorso nasce tra i tavoli da taglio tradizionali, dove ho imparato a comprendere il comportamento dei tessuti, la caduta dei fili e l'arte del moulage direttamente sul manichino. Con l'evoluzione del settore, ho integrato questa sensibilità artigianale con le più avanzate tecnologie di modellistica digitale.
+      </p>
+      <p>
+        Oggi affianco designer e uffici prodotto nella trasformazione dei loro schizzi bidimensionali in prototipi reali e industrializzabili, ponendo massima attenzione all'appiombo del capo, allo sdifettamento e all'ottimizzazione del piazzamento per ridurre gli sprechi di tessuto.
+      </p>
+    </div>
+  </section>
+
+  <!-- Sezione Competenze Strumentali DINAMICA -->
+  <section class="tech-section">
+    <h2>Strumenti & Tecnologie</h2>
+    <div class="tech-grid">
+      
+      <!-- Ciclo Angular sui dati del Signal -->
+      @for (strumento of strumenti(); track strumento.titolo) {
+        <div class="tech-card">
+          <h3>{{ strumento.titolo }}</h3>
+          <p>{{ strumento.descrizione }}</p>
+          
+          <!-- Sotto-ciclo per stampare i singoli badge dei software -->
+          @for (badge of strumento.badgeSoftware; track badge) {
+            <span class="software-badge">{{ badge }}</span>
+          }
+        </div>
+      }
+
+    </div>
+  </section>
+
+</div>
